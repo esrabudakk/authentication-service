@@ -1,0 +1,12 @@
+export enum UserStatues {
+    EMAIL_VERIFICATION_PENDING = "EMAIL_VERIFICATION_PENDING",
+    ACTIVE = "ACTIVE",
+    DEACTIVED = "DEACTIVED",
+    BANNED = "BANNED"
+}
+
+
+export enum UserRoles {
+    ADMIN ="ADMIN",
+    CUSTOMER = "CUSTOMER"
+}
