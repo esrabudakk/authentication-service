@@ -1,5 +1,5 @@
 import * as crypto from 'crypto';
-import { EmailOptions } from './Register';
+import {AuthTokens, EmailOptions} from './Register';
 import nodemailer from 'nodemailer';
 
 export function generateSalt(length = this.rounds): string {
@@ -30,9 +30,20 @@ export function sendEmail(emailOptions:EmailOptions){
 
     transporter.sendMail(emailOptions, function (error, info) {
         if (error) {
-            console.log('Email sent succes');
+            console.log('Email sent success');
         } else {
             console.log('Email sent: ' + info.response);
         }
     });
+}
+
+export function createVerificationLink(token: string, process: string): string {
+    return `https://expathy.com/${process}?token=${token}`;
+}
+
+export function getAuthTokenByUserId(userId: number){
+    const foundUser = AuthTokens.find(item => item.id === userId);
+    if(!foundUser)
+        throw new Error('User not found');
+    return foundUser.token;
 }

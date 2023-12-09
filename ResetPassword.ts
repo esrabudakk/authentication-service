@@ -1,13 +1,13 @@
-import { generateHashedPassword, generateSalt, sendEmail } from "./Utils"
+import {createVerificationLink, generateHashedPassword, generateSalt, getAuthTokenByUserId, sendEmail} from "./Utils"
 import { EmailOptions, UsersData } from "./Register"
 
-function sendEmailToResetPassword(email: string): void {
-
+function sendEmailToResetPassword(email: string, token:string): void {
+    const verificationLink = createVerificationLink(token, 'reset');
     const resetPassword: EmailOptions = {
         to: email,
         from: 'expathy@gmail.com',
         subject: 'Reset Password',
-        text: 'Reset your password'
+        text: `Please reset your password by clicking this link: ${verificationLink}`
     }
     sendEmail(resetPassword);
 }
@@ -25,7 +25,8 @@ function updateCredentials(userId:number, password: string): void {
     if(index === -1)
         throw new Error("User does not exist");
     const user = UsersData[index];
-    sendEmailToResetPassword(user.email);
+    const authToken = getAuthTokenByUserId(user.id);
+    sendEmailToResetPassword(user.email, authToken);
     resetPassword(userId)
     UsersData[index].passwordSalt = generateSalt(7);
     UsersData[index].passwordHash = generateHashedPassword(password,UsersData[index].passwordSalt);

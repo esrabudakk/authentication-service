@@ -1,6 +1,6 @@
-import { UserRoles, UserStatues } from "./Constants";
-import { nanoid } from "nanoid";
-import { generateHashedPassword, generateSalt,sendEmail} from "./Utils";
+import {UserRoles, UserStatues} from "./Constants";
+import {nanoid} from "nanoid";
+import {createVerificationLink, generateHashedPassword, generateSalt, getAuthTokenByUserId, sendEmail} from "./Utils";
 
 
 export const UsersData: { id: number, name: string, lastName: string, email: string, passwordHash: string, passwordSalt: string, status: UserStatues, role: UserRoles, createdAt: Date }[] = []
@@ -26,7 +26,7 @@ export type EmailOptions = {
 function createUser(newUser: NewUserData) {
     const salt = generateSalt(7);
     const hashedPassword = generateHashedPassword(newUser.password, salt);
-    const updatedUser = {
+    const createdUser = {
         ...newUser,
         id: UsersData.length + 1,
         passwordHash: hashedPassword,
@@ -35,9 +35,10 @@ function createUser(newUser: NewUserData) {
         status: UserStatues.EMAIL_VERIFICATION_PENDING,
         createdAt: new Date()
     };
-    UsersData.push(updatedUser);
-    saveToken(updatedUser.id);
-    sendEmailVerification(newUser.email);
+    UsersData.push(createdUser);
+    saveToken(createdUser.id);
+   const authToken =  getAuthTokenByUserId(createdUser.id);
+    sendEmailVerification(newUser.email, authToken);
 }
 
 function generateUniqueToken(): string {
@@ -47,7 +48,6 @@ function generateUniqueToken(): string {
 
 function saveToken(userId: number): void {
     const newToken = generateUniqueToken();
-
     AuthTokens.push({
         id: AuthTokens.length + 1,
         token: newToken,
@@ -56,15 +56,13 @@ function saveToken(userId: number): void {
         createdAt: new Date()
     });
 }
-
-
-function sendEmailVerification(email: string): void {
-
+function sendEmailVerification(email: string, token: string): void {
+    const verificationLink = createVerificationLink(token, 'verify');
     const emailVerification : EmailOptions = {
         to: email,
         from: 'expathy@gmail.com',
         subject: 'Email verification',
-        text : 'Please verify your email'
+        text: `Please verify your email by clicking this link: ${verificationLink}`
     }
     sendEmail(emailVerification);
 }
