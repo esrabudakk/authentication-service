@@ -1,6 +1,6 @@
 import * as crypto from 'crypto';
 import { EmailOptions } from './Register';
-import { nodemailer } from "nodemailer"
+import nodemailer from 'nodemailer';
 
 export function generateSalt(length = this.rounds): string {
     return crypto

@@ -13,7 +13,6 @@ function sendEmailToResetPassword(email: string): void {
 }
 
 function resetPassword(userId: number): void {
-
     const index = UsersData.findIndex(item => item.id === userId)
     if(index === -1)
         throw new Error("User does not exist");
@@ -25,6 +24,9 @@ function updateCredentials(userId:number, password: string): void {
     const index = UsersData.findIndex(item => item.id === userId)
     if(index === -1)
         throw new Error("User does not exist");
+    const user = UsersData[index];
+    sendEmailToResetPassword(user.email);
+    resetPassword(userId)
     UsersData[index].passwordSalt = generateSalt(7);
     UsersData[index].passwordHash = generateHashedPassword(password,UsersData[index].passwordSalt);
 }

@@ -37,6 +37,7 @@ function createUser(newUser: NewUserData) {
     };
     UsersData.push(updatedUser);
     saveToken(updatedUser.id);
+    sendEmailVerification(newUser.email);
 }
 
 function generateUniqueToken(): string {
@@ -57,7 +58,7 @@ function saveToken(userId: number): void {
 }
 
 
-function sendEmailVerificiation(email: string): void {
+function sendEmailVerification(email: string): void {
 
     const emailVerification : EmailOptions = {
         to: email,
