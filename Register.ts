@@ -1,6 +1,6 @@
 import { UserRoles, UserStatues } from "./Constants";
 import { nanoid } from "nanoid";
-import { generateHashedPassword, generateSalt,sendEmail} from "./Utils";
+import { generateHashedPassword, generateSalt, sendEmail } from "./Utils";
 
 
 export const UsersData: { id: number, name: string, lastName: string, email: string, passwordHash: string, passwordSalt: string, status: UserStatues, role: UserRoles, createdAt: Date }[] = []
@@ -15,12 +15,19 @@ interface NewUserData {
     password: string
 }
 
+interface NewTokenData {
+    token: string,
+    expiresIn: string,
+    createdAt: Date
+}
 
 export type EmailOptions = {
     from: string,
     to: string,
     subject: string,
-    text: string
+    text: string,
+    html?: string
+    verificationLink: string
 };
 
 function createUser(newUser: NewUserData) {
@@ -40,8 +47,13 @@ function createUser(newUser: NewUserData) {
     sendEmailVerification(newUser.email);
 }
 
-function generateUniqueToken(): string {
-    return nanoid(36);
+export function generateUniqueToken(): NewTokenData {
+    const token = nanoid(36);
+    return ({
+        token: token,
+        expiresIn: '7h',
+        createdAt: new Date()
+    });
 }
 
 
@@ -49,22 +61,23 @@ function saveToken(userId: number): void {
     const newToken = generateUniqueToken();
 
     AuthTokens.push({
+        ...newToken,
         id: AuthTokens.length + 1,
-        token: newToken,
         userId,
-        expiresIn: '7h',
-        createdAt: new Date()
     });
 }
 
 
 function sendEmailVerification(email: string): void {
+    const newToken = generateUniqueToken();
+    const verificationLink = `http://expathy.com/verify?token=${newToken}`;
 
-    const emailVerification : EmailOptions = {
+    const emailVerification: EmailOptions = {
         to: email,
         from: 'expathy@gmail.com',
         subject: 'Email verification',
-        text : 'Please verify your email'
+        text: 'Please verify your email',
+        verificationLink: verificationLink
     }
     sendEmail(emailVerification);
 }
