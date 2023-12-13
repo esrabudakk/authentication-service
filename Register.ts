@@ -30,7 +30,7 @@ export type EmailOptions = {
     verificationLink: string
 };
 
-function createUser(newUser: NewUserData) {
+export function createUser(newUser: NewUserData) {
     const salt = generateSalt(7);
     const hashedPassword = generateHashedPassword(newUser.password, salt);
     const updatedUser = {

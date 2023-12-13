@@ -24,7 +24,7 @@ function resetPassword(userId: number): void {
     UsersData[index].passwordSalt = ""
 }
 
-function updateCredentials(userId: number, password: string): void {
+export function updateCredentials(userId: number, password: string): void {
     const index = UsersData.findIndex(item => item.id === userId)
     if (index === -1)
         throw new Error("User does not exist");

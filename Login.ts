@@ -1,12 +1,12 @@
 import { UsersData } from "./Register";
 import { generateHashedPassword } from "./Utils";
-import {UserStatues} from "./Constants";
+import { UserStatues } from "./Constants";
 
-function checkUserCredentials(email: string, password: string): boolean {
+export function checkUserCredentials(email: string, password: string): boolean {
     const user = getUserByEmail(email);
     const authToken = getUserById(user[0].id);
     const userStatus = checkUserStatus(authToken[0].token)
-    if(userStatus !== UserStatues.ACTIVE)
+    if (userStatus !== UserStatues.ACTIVE)
         throw new Error(`You cannot log in user status: ${userStatus}`)
     return !!generateHashedPassword(password, user[0].passwordSalt);
 }
