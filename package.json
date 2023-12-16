@@ -4,19 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test1": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv-parser": "^3.0.0",
-    "csv-writer": "^1.6.0",
-    "nanoid": "^5.0.4",
-    "nodemailer": "^6.9.7"
+    "nodemailer": "^6.9.7",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-typescript": "^7.23.3",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.11",
+    "@types/nanoid": "^3.0.0",
     "@types/node": "^20.10.3",
-    "@types/nodemailer": "^6.4.14"
+    "@types/nodemailer": "^6.4.14",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "nanoid": "^5.0.4",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
   }
 }

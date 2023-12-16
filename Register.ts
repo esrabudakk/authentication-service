@@ -15,7 +15,6 @@ interface NewUserData {
     password: string
 }
 
-
 export type EmailOptions = {
     from: string,
     to: string,
@@ -23,7 +22,7 @@ export type EmailOptions = {
     text: string
 };
 
-function createUser(newUser: NewUserData) {
+export function createUser(newUser: NewUserData) {
     const salt = generateSalt(7);
     const hashedPassword = generateHashedPassword(newUser.password, salt);
     const createdUser = {
@@ -41,22 +40,25 @@ function createUser(newUser: NewUserData) {
     sendEmailVerification(newUser.email, authToken);
 }
 
-function generateUniqueToken(): string {
-    return nanoid(36);
-}
-
-
-function saveToken(userId: number): void {
-    const newToken = generateUniqueToken();
-    AuthTokens.push({
-        id: AuthTokens.length + 1,
-        token: newToken,
-        userId,
+export function generateUniqueToken() {
+    const token = nanoid(36);
+    return ({
+        token: token,
         expiresIn: '7h',
         createdAt: new Date()
     });
 }
-function sendEmailVerification(email: string, token: string): void {
+
+
+export function saveToken(userId: number): void {
+    const newToken = generateUniqueToken();
+    AuthTokens.push({
+        ...newToken,
+        id: AuthTokens.length + 1,
+        userId,
+    });
+}
+export function sendEmailVerification(email: string, token: string): void {
     const verificationLink = createVerificationLink(token, 'verify');
     const emailVerification : EmailOptions = {
         to: email,
@@ -66,5 +68,3 @@ function sendEmailVerification(email: string, token: string): void {
     }
     sendEmail(emailVerification);
 }
-
-
