@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a5ad1850-27f2-4e01-9cc8-47eb02b8859f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Register.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Sum.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/register.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/__tests__/register.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/sum.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/__tests__/sum.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/link" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2ZJ3iDKVr0yDxaxg5JiMUmrI8x2" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "test/authentication-service",
+    "last_opened_file_path": "/home/ebudak/mentors",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "ts.external.directory.path": "/home/ebudak/WebstormProjects/authentication-service/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5ad1850-27f2-4e01-9cc8-47eb02b8859f" name="Changes" comment="" />
+      <created>1702126479487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702126479487</updated>
+      <workItem from="1702126480504" duration="11193000" />
+      <workItem from="1702145424393" duration="2112000" />
+      <workItem from="1702229789862" duration="13000" />
+      <workItem from="1702241293831" duration="2828000" />
+      <workItem from="1702313999519" duration="2035000" />
+      <workItem from="1702488499248" duration="2937000" />
+      <workItem from="1702492063041" duration="69000" />
+      <workItem from="1702655699117" duration="11000" />
+    </task>
+    <task id="LOCAL-00001" summary="app fixed">
+      <option name="closed" value="true" />
+      <created>1702127611781</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702127611781</updated>
+    </task>
+    <task id="LOCAL-00002" summary="new : link with token">
+      <option name="closed" value="true" />
+      <created>1702132519590</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702132519590</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/jest.config.js" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="app fixed" />
+    <MESSAGE value="new : link with token" />
+    <option name="LAST_COMMIT_MESSAGE" value="new : link with token" />
+  </component>
+</project>
